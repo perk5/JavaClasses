@@ -8,7 +8,7 @@ class Progression{
     }
 
     public long firstValue(){
-        current = first;
+        current = first;    
         return current;
     }
 
@@ -17,13 +17,33 @@ class Progression{
     }
 
     public void printProgression(int n){
-        System.out.println(firstValue());
+        // System.out.println(firstValue());
 
         for(int i = 1; i < n; i++){
             System.out.println(nextValue());
         }
     }
 
+}
+
+class NewClass extends Progression{
+
+    private long prev;
+    NewClass(){
+        this(2, 200);
+    }
+
+    NewClass(int a, int b){
+        current = a;
+        prev = b;
+    }
+
+    protected long nextValue(){
+        long temp = current;
+        current = Math.abs(current - prev);
+        prev = temp;
+        return current;
+    }
 }
 
 class ArithProgression extends Progression{
@@ -69,12 +89,14 @@ class Fibonacci extends Progression{
     Fibonacci(){
         this(0,1);
     }
+
     Fibonacci(long value1, long value2){
         first = value1;
         prev = value2 - value1;
     }
 
     protected long nextValue(){
+        
         long temp = prev;
         prev = current;
         current += temp;
@@ -86,15 +108,18 @@ public class Inheritance {
     public static void main(String args[]){
         Progression prog;
 
-        System.out.println("Arithmetic progression with default increment : ");
-
-        prog =  new ArithProgression();
+        // System.out.println("Arithmetic progression with default increment : ");
+        prog = new NewClass();
         prog.printProgression(10);
-        System.out.println("Arithmetic progression with increment 5: ");
-        prog =  new ArithProgression(5);
-        prog.printProgression(10);
-        System.out.println("Geometric progression with default base : ");
-        prog = new GeomProgression();
-        prog.printProgression(10);
+        // prog =  new ArithProgression();
+        // prog.printProgression(10);
+        // System.out.println("Arithmetic progression with increment 5: ");
+        // prog =  new ArithProgression(5);
+        // prog.printProgression(10);
+        // System.out.println("Geometric progression with default base : ");
+        // prog = new GeomProgression();
+        // prog.printProgression(10);
+        // prog = new Fibonacci(2,2);
+        // prog.printProgression(10);
     }
 }
