@@ -67,12 +67,14 @@ class Game {
     public static void main(String args[]) {
         GameEntry PS = new GameEntry("Prerak", 200);
         GameEntry RJ = new GameEntry("Raj", 300);
+        GameEntry MS = new GameEntry("Mausam", 500);
 
         // System.out.println(GE.traverse());
 
         Score Sc = new Score();
         Sc.add(PS);
         Sc.add(RJ);
+        Sc.add(MS);
         System.out.println(Sc.traverse());
         System.out.println(Sc.n);
     }
