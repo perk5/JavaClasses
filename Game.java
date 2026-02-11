@@ -1,5 +1,3 @@
-import java.util.*;
-
 class GameEntry {
     protected String name;
     protected int score;

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class TicTacToe {
 
     protected final int x = 1;
