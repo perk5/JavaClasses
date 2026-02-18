@@ -71,7 +71,20 @@ class CreateDoublyLinkedLists {
                 current = current.next;
                 
                 traver(current);
-            }
+            }   
+
+    public void swap(){
+        Node current = head;
+
+        Node x = current.next;
+        Node y = current.next.next;
+
+        current.next = y;
+        current.next.prev = current;
+        current.next.next = x;
+        current.next.next.prev = y;
+        current.next.next.next = y.next;
+    }
 
 }
 
@@ -80,9 +93,9 @@ class DoublyLinkedLists {
         CreateDoublyLinkedLists create = new CreateDoublyLinkedLists();
         create.insertFromHead("First");
         create.insertFromHead("Second");
-        create.insertFromTail("Zero");
-        create.traver(create.head);
-
-        // create.traverse();
+        create.insertFromHead("Third");
+        create.insertFromHead("Fourth");
+        create.swap();
+        create.traverse();
     }
 }
