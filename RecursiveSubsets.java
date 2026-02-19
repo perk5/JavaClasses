@@ -4,7 +4,9 @@ public class RecursiveSubsets {
 
     public static void printSubsets(List<Integer> arr, List<Integer> subSets, List<List<Integer>> allSubsets, int n) {
         if (n == arr.size()) {
-            allSubsets.add(new ArrayList<>(subSets));
+            if (!allSubsets.contains(subSets)) {
+                allSubsets.add(new ArrayList<>(subSets));
+            }
             return;
         }
 
@@ -19,7 +21,7 @@ public class RecursiveSubsets {
         List<Integer> arr = new ArrayList<>();
         arr.add(1);
         arr.add(2);
-        arr.add(3);
+        arr.add(2);
         List<Integer> subSets = new ArrayList<>();
         List<List<Integer>> allSubsets = new ArrayList<>();
 
